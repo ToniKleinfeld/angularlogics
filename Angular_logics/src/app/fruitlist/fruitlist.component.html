@@ -10,14 +10,28 @@
                 <p><b>Bewertung:</b></p>
                 <div>
                     @for (count of [1,2,3,4,5]; track fruitlist) {
-                        @if (count <= item.stars ) {
+                        <!-- @if (count <= item.stars ) {
                             <img src="./assets/img/stars/star.svg" alt="">
                         } @else if(count - 0.5 <= item.stars ){
-                                <img src="./assets/img/stars/star-half.svg" alt="">                    
+                            <img src="./assets/img/stars/star-half.svg" alt="">                    
                         } @else {
                             <img src="./assets/img/stars/star-empty.svg" alt="">
-                        }
+                        } -->
+
+                        @switch ((count <= item.stars)) {
+                            @case (true) {
+                                <img src="./assets/img/stars/star.svg" alt="">
+                            }
+                            @case (!(count - 0.5 <= item.stars )) {
+                                <img src="./assets/img/stars/star-half.svg" alt=""> 
+                            }
+                            @default {
+                                <img src="./assets/img/stars/star-empty.svg" alt="">
+                            }
+                          }
                     }
+
+                    
 
                     <p>({{item.stars}})</p>
                 </div>
