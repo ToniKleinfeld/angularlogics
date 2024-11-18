@@ -10,6 +10,7 @@
                 <p><b>Bewertung:</b></p>
                 <div>
                     @for (count of [1,2,3,4,5]; track fruitlist) {
+
                         <!-- @if (count <= item.stars ) {
                             <img src="./assets/img/stars/star.svg" alt="">
                         } @else if(count - 0.5 <= item.stars ){
@@ -33,7 +34,10 @@
 
                     
 
-                    <p [ngStyle]="{'color': item.stars > 3 ? frontColorGood : frontcolorBad }">({{item.stars}})</p>
+                    <!-- <p [ngStyle]="{'color': item.stars > 3 ? frontColorGood : frontcolorBad }">({{item.stars}})</p> -->
+                    <!-- <p [ngClass]="'frontColorBad'" >({{item.stars}})</p> -->
+                    <p [ngClass]="{'frontColorBad': item.stars < 3, 'frontColorGood': item.stars >= 3 }" >({{item.stars}})</p>
+                    
                 </div>
             </div>
             <div>
