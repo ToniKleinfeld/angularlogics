@@ -33,7 +33,7 @@
 
                     
 
-                    <p>({{item.stars}})</p>
+                    <p [ngStyle]="{'color': item.stars > 3 ? frontColorGood : frontcolorBad }">({{item.stars}})</p>
                 </div>
             </div>
             <div>
