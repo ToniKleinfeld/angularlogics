@@ -9,11 +9,15 @@
             <div>
                 <p><b>Bewertung:</b></p>
                 <div>
-                    <img src="./assets/img/stars/star.svg" alt="">
-                    <img src="./assets/img/stars/star.svg" alt="">
-                    <img src="./assets/img/stars/star.svg" alt="">
-                    <img src="./assets/img/stars/star-half.svg" alt="">
-                    <img src="./assets/img/stars/star-empty.svg" alt="">
+                    @for (count of [1,2,3,4,5]; track fruitlist) {
+                        @if (count <= item.stars ) {
+                            <img src="./assets/img/stars/star.svg" alt="">
+                        } @else if(count - 0.5 <= item.stars ){
+                                <img src="./assets/img/stars/star-half.svg" alt="">                    
+                        } @else {
+                            <img src="./assets/img/stars/star-empty.svg" alt="">
+                        }
+                    }
 
                     <p>({{item.stars}})</p>
                 </div>
@@ -32,7 +36,7 @@
                 <div>
                     @for (review of item.reviews ; track review) {
                         <div><b>{{review.name}}:</b><br>{{review.text}}</div>
-                    } @empty {
+                    }@empty {
                         Be the first to comment!
                     }
                     
