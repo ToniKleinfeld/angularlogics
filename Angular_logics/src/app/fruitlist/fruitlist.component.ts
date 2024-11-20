@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { SinglefruitComponent } from './singlefruit/singlefruit.component';
-import { FruitlistdataService } from '../fruitlistdata.service';
+import { FruitlistdataService } from '../shared/service/fruitlistdata.service';
 
 @Component({
   selector: 'app-fruitlist',
@@ -27,7 +27,4 @@ export class FruitlistComponent {
   addComment(comment:string,index:number){                   // oder die function auslagern in die service und hier diese aufrufen
     this.fruitlistdata.addCommentToFruit(comment, index)
   }
-
-
-
 }
